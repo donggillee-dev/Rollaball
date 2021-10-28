@@ -5,6 +5,9 @@ using UnityEngine;
 public class CoinController : MonoBehaviour
 {
     [SerializeField]
+    private StageController stageController;
+    
+    [SerializeField]
     private GameObject coinEffectPrefab;
     private float rotateSpeed = 100.0f;
 
@@ -19,6 +22,9 @@ public class CoinController : MonoBehaviour
         //코인 오브젝트 획즉 효과(coinEffectPrefab) 생성
         GameObject clone = Instantiate(coinEffectPrefab);
         clone.transform.position = transform.position;
+
+        //코인 획튿시 처리
+        stageController.GetCoin();
 
         //코인 오브젝트 삭제
         Destroy(gameObject);
